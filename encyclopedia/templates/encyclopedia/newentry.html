@@ -1,0 +1,25 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Newentry
+{% endblock %}
+
+
+{% block body %}
+    {% if message %}
+ <div class="alert alert-danger" style="text-align: center;" role="alert">
+    {{message}}
+  </div>
+    {% endif %}
+    <form  method="post">
+    {% csrf_token %}
+        <div class="form-row">
+    <input type="text" name="text" placeholder="Enter Your Title">
+        </div>
+        <br>
+        <div class="form-group">
+   <textarea name="content" spellcheck="false" placeholder="Enter Your Text Here" style="margin-top: 0px; margin-bottom: 0px; height: 270px;"></textarea><br>
+        </div>
+            <button type="submit" class="btn btn-dark">Submit</button>
+    </form>
+{% endblock %}

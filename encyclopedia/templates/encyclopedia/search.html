@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ q }}
+{% endblock %}
+
+{% block body %}
+    <h1>Search Result:</h1>
+     <ul>
+     {% if not search %}
+     NO Result Found!
+     {% endif %}
+        {% for iki in search %}
+            <li><a href={% url 'entry' iki %}>{{ iki }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
